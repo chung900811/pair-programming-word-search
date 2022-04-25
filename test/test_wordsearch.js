@@ -35,4 +35,27 @@ describe("#wordSearch()", function() {
 
     assert.isTrue(result);
   });
+
+  it('should return false if the word matrix is an empty array', () => {
+    const result = wordSearch([], 'FRANK');
+    assert.isFalse(result);
+  });
+  it('should return false if not provided and array', () => {
+    const result = wordSearch('hello', 'FRANK');
+    assert.isFalse(result);
+  });
+  it('should return true if the word is written vertically', () => {
+    const result = wordSearch([
+      ['S', 'W', 'C', 'F', 'Q', 'U', 'A', 'L'],
+      ['E', 'E', 'I', 'N', 'F', 'E', 'L', 'D'],
+      ['I', 'F', 'C', 'F', 'Q', 'U', 'A', 'L'],
+      ['N', 'M', 'J', 'T', 'E', 'V', 'R', 'G'],
+      ['F', 'H', 'C', 'S', 'Y', 'E', 'R', 'L'],
+      ['E', 'F', 'R', 'E', 'N', 'E', 'Y', 'B'],
+      ['L', 'B', 'T', 'W', 'A', 'P', 'A', 'I'],
+      ['D', 'D', 'C', 'A', 'K', 'U', 'A', 'S'],
+      ['S', 'Z', 'K', 'F', 'Q', 'U', 'A', 'L'],
+    ], 'SEINFELDS');
+    assert.isTrue(result);
+  });
 });
